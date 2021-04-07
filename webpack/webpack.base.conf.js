@@ -21,11 +21,19 @@ module.exports = {
         test: /\.scss$/,
         use: [
           'style-loader',
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
-          }, {
+            options: {
+              sourceMap: true
+            }
+          },
+          {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
@@ -33,7 +41,8 @@ module.exports = {
                 config: './src/js/postcss.config.js'
               }
             }
-          }, {
+          },
+          {
             loader: 'sass-loader',
             options: { sourceMap: true }
           }
@@ -43,11 +52,19 @@ module.exports = {
         test: /\.css$/,
         use: [
           'style-loader',
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              esModule: false,
+            },
+          },
           {
             loader: 'css-loader',
-            options: { sourceMap: true }
-          }, {
+            options: {
+              sourceMap: true
+            }
+          },
+          {
             loader: 'postcss-loader',
             options: {
               sourceMap: true,
