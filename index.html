@@ -4,28 +4,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="./dist/app.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
     <div class="main-block">
         <h1 class="title-text">Our Latest Developments</h1>
         <form action="" class="search-form">
-            <label for="search">Filter</label>
-            <input id="search" type="text">
+            <label for="search" class="search-form__label">Filter</label>
+            <input id="search" type="text" class="search-form__input">
         </form>
         <article class="products-block">
             <section class="cards-block">
-                <div class="cards-block__card">
+                <a class="cards-block__card" href="">
                     <div class="cards-block__card__image-block">
-                        <img src="https://via.placeholder.com/300x150/FF0000/FFFFFF?text=%D0%B4%D0%BE%D0%BC" alt="">
+                        <img src="https://via.placeholder.com/300x150/FF0000/FFFFFF?text=%D0%B4%D0%BE%D0%BC" alt="" class="cards-block__card__image-block__img">
                         <div>Independent living</div>
                     </div>
-                    <div class="cards-block__card__title">
-                        <p>Brunlees Court</p>
-                        <p>19-23 Cambridge Road, Southport</p>
-                        <p>New Properties for Sale from <span>£214,999</span></p>
-                        <p>Shared Ownership Available</p>
+                    <div class="cards-block__card__description">
+                        <p class="cards-block__card__description__title">Brunlees Court</p>
+                        <p class="cards-block__card__description__address">19-23 Cambridge Road, Southport</p>
+                        <p class="cards-block__card__description__price">New Properties for Sale from <b>£214,999</b></p>
+                        <p class="cards-block__card__description__available">Shared Ownership Available</p>
                     </div>
-                </div>
+                </a>
             </section>
             <button>See more &rsaquo;</button>
         </article>
