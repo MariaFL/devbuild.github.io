@@ -21,7 +21,10 @@ function createCard(data) {
     typeClass = 'for-business';
   };
   const cardlink = document.createElement('a');
+  carlink.href = '#';
+  cardlink.title = data['title'];
   cardlink.className = 'cards-block__card';
+
   cardlink.innerHTML = `
     <div class="cards-block__card__image-block">
         <img src="https://via.placeholder.com/380x240/66c5e5/52861d?text=build${data['id']}" alt="" class="cards-block__card__image-block__img">
