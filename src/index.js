@@ -1,4 +1,5 @@
 import './scss/index.scss';
+import { startSearch } from './js/search';
 
 function setCards(dataCards) {
   const cardsBlock = document.getElementById('js-cards-block');
@@ -19,12 +20,12 @@ function createCard(data) {
   } else {
     typeText = 'Restaurant & Support available';
     typeClass = 'for-business';
-  };
+  }
   const cardlink = document.createElement('a');
-  carlink.href = '#';
+  cardlink.href = '#';
   cardlink.title = data['title'];
-  cardlink.className = 'cards-block__card';
-
+  cardlink.className = 'cards-block__card js-cards-block__card';
+  cardlink.dataset.title = data['title'];
   cardlink.innerHTML = `
     <div class="cards-block__card__image-block">
         <img src="https://via.placeholder.com/380x240/66c5e5/52861d?text=build${data['id']}" alt="" class="cards-block__card__image-block__img">
@@ -50,8 +51,33 @@ async function getData() {
     mode: 'cors'
   });
   const data = await response.json();
-  console.log(data);
   setCards(data);
 }
 
-getData();
+function activeSearch(input) {
+  startSearch(input.value);
+}
+
+function setSearchListening() {
+  const searchForm = document.getElementById('js-search-form');
+  const searchInput = document.getElementById('search');
+
+  if (searchForm) {
+    searchForm.addEventListener('submit', event => {
+      event.preventDefault();
+      activeSearch(searchInput);
+    });
+  }
+
+  if (searchInput) {
+    searchInput.oninput = function() {
+      activeSearch(searchInput);
+    }
+  }
+}
+
+window.onload = function() {
+  getData();
+
+  setSearchListening();
+};
